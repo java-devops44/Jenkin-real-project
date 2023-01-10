@@ -47,12 +47,15 @@ pipeline {
                 }
             }
         
-            stage('Quality gates stage')
+            stage('Quality gates stage'){
                 steps{
                     script{
                         withSonarQubeEnv(credentialsId: 'sonar-token') {
+
                     }
                 }
             }
+                
         }
     }
+}
