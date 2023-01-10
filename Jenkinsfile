@@ -14,10 +14,11 @@ pipeline {
                 }
             }
         }
-        stage('UNIT TEST'){
-            stpes{
+        stage('UNIT testing'){
+            steps {
 
-                script{
+                script {
+
                     sh 'mvn test'
                 }
             }
