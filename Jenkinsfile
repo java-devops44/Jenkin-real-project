@@ -40,11 +40,18 @@ pipeline {
         stage('Static Code Analysis'){
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonar') {
+                    withSonarQubeEnv(credentialsId: 'New-s') {
 
                         sh 'mvn clean package sonar:sonar'
                     }
 
+                }
+            }
+        }
+        stage('Quality Gates Status'){
+            steps{
+                script{
+                    waitForQualityGate abortPipeline: false, credentialsId: 'New-s'
                 }
             }
         }
