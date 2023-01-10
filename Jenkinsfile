@@ -56,6 +56,7 @@ pipeline {
 
 
                     waitForQualityGate abortPipeline: false, credentialsId: 'new-sonar-tok'
+                }
                 
             }
                 
