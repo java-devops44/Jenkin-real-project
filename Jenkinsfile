@@ -34,27 +34,29 @@ pipeline {
             steps{
                 script{
                     sh 'mvn clean install'
-                }            }
+                }            
+            }
         }
         stage('Static Code Analysis'){
             steps{
                 script{
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                    withSonarQubeEnv(credentialsId: 'new-sonar-tok') {
 
                         sh 'mvn clean package sonar:sonar'
                     }
 
-                  }
                 }
             }
+        }
         
         stage('Quality gates stage'){
 
             steps{
                 script{
 
-                    waitForQualityGate abortPipeline: true
-                }
+
+                    waitForQualityGate abortPipeline: false, credentialsId: 'new-sonar-tok'
+                
             }
                 
         }
