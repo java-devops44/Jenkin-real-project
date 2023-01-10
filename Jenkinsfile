@@ -15,8 +15,9 @@ pipeline {
             }
         }
         stage('UNIT TEST'){
-            stpes {
-                scrpt {
+            stpes{
+
+                scrpt{
                     sh 'mvn test'
                 }
             }
