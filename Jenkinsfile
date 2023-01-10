@@ -14,5 +14,12 @@ pipeline {
                 }
             }
         }
+        stage('UNIT TEST'){
+            stpes {
+                scrpt {
+                    sh 'mvn test'
+                }
+            }
+        }
     }
 }
