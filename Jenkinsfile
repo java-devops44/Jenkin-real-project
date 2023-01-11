@@ -77,7 +77,7 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'docker-pass', variable: 'docker_HUB')]) {
-                    sh 'docker login --username cloudhub12 --password  ${docker_pass}' 
+                    sh 'docker login -u cloudhub12 -p  ${docker_HUB}' 
                     sh 'docker image push cloudhub12/$JOB_NAME:v1.$BUILD_ID'   
                     sh 'docker image push cloudhub12/$JOB_NAME:latest'
 
