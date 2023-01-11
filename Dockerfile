@@ -1,5 +1,5 @@
 FROM maven as build
-WORKDIR /pp
+WORKDIR /app
 COPY . .
 RUN mvn install
 
