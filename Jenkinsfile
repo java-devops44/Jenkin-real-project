@@ -57,7 +57,7 @@ pipeline {
         stage('Upload to jar to Nexus-Repo'){
             steps{
                 script{
-                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '54.158.56.218:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-release', version: '1.0.0'
+                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '3.88.178.183:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-release', version: '1.0.1'
 
                 }
             }
