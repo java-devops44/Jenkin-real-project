@@ -61,7 +61,7 @@ pipeline {
 
                     def nexusRepo = readPomVersion.version.endswith("SNAPSHOT") ? "demoapp-snapshot" : "demoapp-release"
 
-                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '3.88.178.183:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexusRepo', version: "${readPomVersion.version}"
+                    nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '3.88.178.183:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'dempapp-snapshot', version: "${readPomVersion.version}"
 
                 }
             }
