@@ -53,15 +53,16 @@ pipeline {
                  }
              }
          }
+    
+        stage('Quality Gates Status'){
+             steps{
+                 script{
+                        waitForQualityGate abortPipeline: false, credentialsId: 'soanetoken'     
+               }
+             }
+         }
     }
 }
-//         stage('Quality Gates Status'){
-//             steps{
-//                 script{
-//                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkin-soanr'
-//                 }
-//             }
-//         }
 //         stage('Upload to jar to Nexus-Repo'){
 //             steps{
 //                 script{
