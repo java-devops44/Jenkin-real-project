@@ -32,18 +32,20 @@ pipeline {
                 }
              }
          }
+    
+
+         stage('Maven Build'){
+             steps{
+                 script{
+                     sh 'mvn clean install'
+                 }            
+             }
+         }
     }
 }
-//         stage('Maven Build'){
-//             steps{
-//                 script{
-//                     sh 'mvn clean install'
-//                 }            
-//             }
-//         }
-//         stage('Static Code Analysis'){
-//             steps{
-//                 script{
+        //  stage('Static Code Analysis'){
+        //      steps{
+        //          script{
 //                     withSonarQubeEnv(credentialsId: 'jenkin-soanr') {
 //                         sh 'mvn clean package sonar:sonar'
 //                     }
