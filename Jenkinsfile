@@ -61,18 +61,21 @@ pipeline {
                }
              }
          }
-    }
+
+         stage('Upload to jar to Nexus-Repo') {
+             steps{
+                 script{
+                    def readPomVersion = readMavenPom file: 'pom.xml'
+
+                        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '54.175.170.176:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'nexus-release', version: 'readPomVersion.version'
+                }
+             }
+         }
+        
+    } 
 }
-//         stage('Upload to jar to Nexus-Repo'){
-//             steps{
-//                 script{
-//                     def readPomVersion = readMavenPom file: 'pom.xml'
 
-//                     nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], credentialsId: 'nexus-login', groupId: 'com.example', nexusUrl: '52.90.87.239:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-release', version: "${readPomVersion.version}"
-
-//                 }
-//             }
-//         }
+         
 //         stage('Docker Build the Image'){
 //             steps{
 //                 script{
